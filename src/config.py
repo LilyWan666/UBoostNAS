@@ -11,8 +11,8 @@ def load_params():
 	parser.add_argument('--train_dataset', type=str, required=False, default="cifar10",# change imagenet to cifar10
 		choices=['cifar10', 'imagenet100', "imagenet"])
 
-	parser.add_argument('--ms_no_epoch', type=int, required=False, default=20)
-	parser.add_argument('--cs_no_epoch', type=int, required=False, default=20)
+	parser.add_argument('--ms_no_epoch', type=int, required=False, default=1)
+	parser.add_argument('--cs_no_epoch', type=int, required=False, default=1)
 	parser.add_argument('--ft_no_epoch', type=int, required=False, default=1)
 
 	parser.add_argument('--hw_type', type=str, required=False, 
