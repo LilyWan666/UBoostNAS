@@ -11,13 +11,13 @@ class PLWrapper(pl.LightningModule):
         self.config = config
         self.model = model
 
-        self.train_acc = torchmetrics.Accuracy(dist_sync_on_step=True)
+        self.train_acc = torchmetrics.Accuracy(dist_sync_on_step=True, task="multiclass")
         self.train_acc_top5 = torchmetrics.Accuracy(top_k=5, dist_sync_on_step=True, task="multiclass")
 
-        self.val_acc = torchmetrics.Accuracy(dist_sync_on_step=True)
+        self.val_acc = torchmetrics.Accuracy(dist_sync_on_step=True, task="multiclass")
         self.val_acc_top5 = torchmetrics.Accuracy(top_k=5, dist_sync_on_step=True, task="multiclass")
 
-        self.test_acc = torchmetrics.Accuracy(dist_sync_on_step=True)
+        self.test_acc = torchmetrics.Accuracy(dist_sync_on_step=True, task="multiclass")
         self.test_acc_top5 = torchmetrics.Accuracy(top_k=5, dist_sync_on_step=True, task="multiclass")
 
     def forward(self, x):
