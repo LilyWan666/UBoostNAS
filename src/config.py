@@ -8,7 +8,7 @@ def load_params():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--search_dataset', type=str, required=False, default="cifar10",
 		choices=['cifar10', 'imagenet100'])
-	parser.add_argument('--train_dataset', type=str, required=False, default="imagenet",
+	parser.add_argument('--train_dataset', type=str, required=False, default="cifar10",# change imagenet to cifar10
 		choices=['cifar10', 'imagenet100', "imagenet"])
 
 	parser.add_argument('--ms_no_epoch', type=int, required=False, default=1)
@@ -77,7 +77,7 @@ def load_params():
 	
 	args = parser.parse_args()
 
-	args.no_dataloader_workers = os.cpu_count()
+	args.no_dataloader_workers = os.cpu_count() # get the number of CPU core.
 
 	args.channel_range = {"start": 64, "stop": 280, "step": 8}
 
