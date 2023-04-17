@@ -73,7 +73,8 @@ class Trainer:
     def test_final(self, test_dataloader):
         self.pl_trainer.test(
             model=self.pl_model,
-            test_dataloaders=test_dataloader
+            # test_dataloaders=test_dataloader
+            dataloaders=test_dataloader
         )
 
     def run_csim(self, model, stats):

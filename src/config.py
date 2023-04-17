@@ -11,9 +11,9 @@ def load_params():
 	parser.add_argument('--train_dataset', type=str, required=False, default="cifar10",# change imagenet to cifar10
 		choices=['cifar10', 'imagenet100', "imagenet"])
 
-	parser.add_argument('--ms_no_epoch', type=int, required=False, default=1)
-	parser.add_argument('--cs_no_epoch', type=int, required=False, default=1)
-	parser.add_argument('--ft_no_epoch', type=int, required=False, default=1)
+	parser.add_argument('--ms_no_epoch', type=int, required=False, default=10)
+	parser.add_argument('--cs_no_epoch', type=int, required=False, default=30)
+	parser.add_argument('--ft_no_epoch', type=int, required=False, default=100)
 
 	parser.add_argument('--hw_type', type=str, required=False, 
 		choices=["systolic", "flops", "roofline", "blackbox"], default="systolic", 
@@ -34,8 +34,8 @@ def load_params():
 		help='No of stacks for channel search, 1: stack with maxpool, 0: stack w/out maxpool')
 
 	parser.add_argument('--search_batch_size', type=int, required=False, default=64)
-	parser.add_argument('--search_sgd_init_lr', type=float, required=False, default=0.001)
-	parser.add_argument('--search_sgd_momentum', type=float, required=False, default=0.8)
+	parser.add_argument('--search_sgd_init_lr', type=float, required=False, default=0.05)
+	parser.add_argument('--search_sgd_momentum', type=float, required=False, default=0.9)
 	parser.add_argument('--search_sgd_weight_decay', type=float, required=False, default=3e-4)
 	parser.add_argument('--search_weight_grad_clip', type=float, required=False, default=0.5)
 	parser.add_argument('--search_lr_scheduler_step', type=float, required=False, default=30)
